@@ -1,24 +1,21 @@
-# README
+# Question Dispatch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+for dispatching
 
-Things you may want to cover:
 
-* Ruby version
+## Dependencies
 
-* System dependencies
+- Rails 6
+- Postgres
+- Yarn
 
-* Configuration
+## Installing Locally
 
-* Database creation
+1. `bundle install`
+2. update config/database.yml
+3. rails db:create
 
-* Database initialization
+## Running Locally
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `rails s`
+- *To have webpacker live reload*: in a separate terminal window `./bin/webpack-dev-server`
