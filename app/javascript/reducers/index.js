@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { routerReducer } from "react-router-redux";
-import SAY_HELLO from "./actions/types";
+// import { routerReducer } from "react-router-redux";
+import { SAY_HELLO, FETCH_HELLO, NAME_GIVEN } from "../actions/types";
 
 const basicReducer = (state = null, action) => {
   switch (action.type) {
@@ -12,6 +12,16 @@ const basicReducer = (state = null, action) => {
       return state;
   }
 };
+
+const nameReducer = (state = null, action) => {
+  switch (action.type) {
+    case NAME_GIVEN:
+      return action.name;
+    default:
+      return state;
+  }
+};
 export default combineReducers({
-  basic: basicReducer
+  basic: basicReducer,
+  name: nameReducer
 });

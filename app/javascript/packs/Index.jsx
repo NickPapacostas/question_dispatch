@@ -5,20 +5,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-
-const Hello = props => <div>Hello its me {props.name}!</div>;
-
-// Hello.defaultProps = {
-//   name: "David"
-// };
-//
-// Hello.propTypes = {
-//   name: PropTypes.string
-// };
+import App from "../App.jsx";
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
-    <Hello name=" Charles" />,
+    <App />,
+
     document.body.appendChild(document.createElement("div"))
   );
 });
