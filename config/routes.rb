@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :sessions, only: [:create]
+  resources :registrations, only: [:create]
 
-  # get '*page', to: 'homepage#index', constraints: ->(req) do
-  #   !req.xhr? && req.format.html?
+  delete :logout, to: "sessions#logout"
+  get :logged_in, to: "sessions#logged_in"
+
+  # namespace :app do
+  #   get '*', to: 'homepage#index'
   # end
 
   root 'homepage#index'
