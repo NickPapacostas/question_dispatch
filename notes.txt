@@ -1,0 +1,50 @@
+User
+  - first_name
+  - last_name
+  - email
+  - github_username
+  - roles ["student", "dispatcher", "coach", "admin"]
+
+Student
+  - email
+  - github_username
+
+Message
+  - sender (user_id)
+  - text (rich text?)
+  - question_id
+
+
+Question
+  - student_id
+  - description
+  - error_message
+  - github_url
+  - state ('initial_queue', 'with_dispatch', 'coaches_queue', 'inactive', 'with_coach', 'resolved')
+
+CoachingSession
+  - student_id
+  - coach_id
+  - coach_role
+  - start_time
+  - end_time
+  - status ('active', 'inactive', 'finished')
+
+Snippet
+  - question_id
+  - rich_text
+
+Shift
+  - user_id
+  - role? roles?
+  - start_time
+  - end_time
+
+
+----- Streams -----
+
+current_shift:
+  {
+    user: { ... },
+    event: { type: 'started_working_with_student', data: { } }
+  }
