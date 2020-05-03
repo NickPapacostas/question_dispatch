@@ -1,18 +1,11 @@
-import { SAY_HELLO, FETCH_HELLO, NAME_GIVEN } from "./types";
+import { SAY_HELLO, FETCH_HELLO, NEW_USER } from "./types";
+import { newUser } from "../adapters";
 
-export const sayHello = () => {
-  return { type: SAY_HELLO, hello: "hiya!" };
-};
-
-export const nameInput = name => {
-  return { type: NAME_GIVEN, name };
-};
-
-export const fetchHello = () => {
-  return dispatch => {
-    return fetch("/homepage")
-      .then(resp => resp.json)
-      .then(json => dispatch({ type: FETCH_HELLO, hello: "hiya!", json: json }))
-      .catch(error => console.log(error));
+export const register = (dispatch, userData) => {
+  return (dispatch) => {
+    dispatch({ type: "ASYNC_START" });
+    newUser(userData).then((data) => {
+      dispatch({ type: NEW_USER, data });
+    });
   };
 };
