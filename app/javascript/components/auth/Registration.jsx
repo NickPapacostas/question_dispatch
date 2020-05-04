@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { register } from "../../actions/index.js";
 
 class Registration extends Component {
   constructor(props) {
@@ -30,7 +32,6 @@ class Registration extends Component {
       password,
       password_confirmation,
     } = this.state;
-
     let data = {
       user: {
         first_name,
@@ -99,4 +100,4 @@ class Registration extends Component {
   }
 }
 
-export default Registration;
+export default connect(null, { register })(Registration);

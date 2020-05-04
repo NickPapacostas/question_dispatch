@@ -10,7 +10,9 @@ class Dashboard extends Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <h2>Welcome! {this.props.user != {} ? this.props.user.name : null}</h2>
+        <h2>
+          Welcome! {this.props.user != {} ? this.props.user.first_name : null}
+        </h2>
       </div>
     );
   }

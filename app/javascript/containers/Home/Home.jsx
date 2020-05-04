@@ -9,7 +9,6 @@ class Home extends React.Component {
   }
 
   componentDidMount = () => {
-    debugger;
     this.props.user != {} ? this.props.history.push("/dashboard") : null;
   };
 

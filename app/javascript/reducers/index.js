@@ -18,6 +18,7 @@ const userReducer = (state = {}, action) => {
       return state;
   }
 };
+
 export default combineReducers({
   basic: basicReducer,
   user: userReducer,
