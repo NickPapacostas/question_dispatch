@@ -5,12 +5,11 @@ Rails.application.routes.draw do
 
     delete :logout, to: "sessions#logout"
     get :logged_in, to: "sessions#logged_in"
-  end 
+  end
 
-  
+
   get '*path', to: 'homepage#index'
   root 'homepage#index'
 
-  
-  # get '/dashboard', to: 'homepage#index'
+  mount ActionCable.server, at: '/cable'
 end

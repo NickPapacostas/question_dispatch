@@ -8,9 +8,9 @@ class Api::RegistrationsController < ApplicationController
       last_name: params["data"]["user"]["last_name"],
       github_username: params["data"]["user"]["last_name"]
     )
-    
+
     if user
-      session[:user_id] = user.id
+      cookies.encrypted[:user_id] = user.id
       render json: {
         status: :created,
         user: user

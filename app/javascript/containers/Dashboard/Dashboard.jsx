@@ -1,11 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import consumer from "../../channels/consumer";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    consumer.subscriptions.create(
+      { channel: "QuestionChannel"},
+      {
+        received: data => {
+          console.log(data)
+        }
+      }
+    );
+  }
+
   render() {
     return (
       <div>
