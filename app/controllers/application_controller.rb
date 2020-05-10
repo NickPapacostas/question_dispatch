@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     if cookies.encrypted[:user_id]
-      @current_user = User.find(session[:user_id])
+      @current_user = User.find(cookies.encrypted[:user_id])
     end
   end
 end
