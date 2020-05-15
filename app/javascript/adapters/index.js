@@ -3,11 +3,21 @@ const headers = {
   "Content-Type": "application/json",
 };
 
-//############################################################################
-//USERS
+//USERS############################################################################
 
 export const newUser = (data) => {
   return fetch("http://localhost:3000/api/registrations", {
+    headers: headers,
+    credentials: "include",
+    method: "POST",
+    body: JSON.stringify({ data }),
+  })
+    .then((resp) => resp.json())
+    .then((json) => json);
+};
+
+export const logIn = (data) => {
+  return fetch("http://localhost:3000/api/sessions", {
     headers: headers,
     credentials: "include",
     method: "POST",

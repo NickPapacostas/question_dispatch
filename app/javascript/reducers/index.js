@@ -1,18 +1,13 @@
 import { combineReducers } from "redux";
-import { SAY_HELLO, FETCH_HELLO, NEW_USER } from "../actions/types";
+import { LOG_IN, NEW_USER } from "../actions/types";
 
-const basicReducer = (state = null, action) => {
-  switch (action.type) {
-    case SAY_HELLO:
-      return action.hello;
-    default:
-      return state;
-  }
-};
+const userReducer = (state = null, action) => {
+  console.log("user reducer", action.data);
 
-const userReducer = (state = {}, action) => {
   switch (action.type) {
     case NEW_USER:
+      return action.data.user;
+    case LOG_IN:
       return action.data.user;
     default:
       return state;
@@ -20,6 +15,5 @@ const userReducer = (state = {}, action) => {
 };
 
 export default combineReducers({
-  basic: basicReducer,
   user: userReducer,
 });

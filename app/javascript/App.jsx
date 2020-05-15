@@ -4,8 +4,6 @@ import Home from "./containers/Home/Home";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore.js";
 import Dashboard from "./containers/Dashboard/Dashboard";
-import Registration from "./components/auth/Registration";
-import LogIn from "./components/auth/LogIn";
 
 const store = configureStore();
 
@@ -13,22 +11,21 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      loggedInStatus: "NOT_LOGGED_IN",
-      user: {},
-    };
+    this.state = {};
   }
 
-  loggingIn = () => {
-    this.props.user != {}
-      ? this.setState({ loggedInStatus: "LOGGED_IN" })
-      : null;
-  };
+  componentDidMount = () => {};
 
   render() {
     return (
       <div className="app">
         <Provider store={store}>
+          <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossOrigin="anonymous"
+          />
           <Router>
             <Switch>
               <Route
@@ -36,27 +33,6 @@ export default class App extends Component {
                 path="/"
                 render={(props) => (
                   <Home {...props} loggedInStatus={this.state.loggedInStatus} />
-                )}
-              />
-              <Route
-                exact
-                path="/register"
-                render={(props) => (
-                  <Registration
-                    {...props}
-                    loggedInStatus={this.state.loggedInStatus}
-                  />
-                )}
-              />
-
-              <Route
-                exact
-                path="/login"
-                render={(props) => (
-                  <LogIn
-                    {...props}
-                    loggedInStatus={this.state.loggedInStatus}
-                  />
                 )}
               />
               <Route

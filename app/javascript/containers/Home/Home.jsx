@@ -1,33 +1,56 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import Registration from "../../components/auth/Registration";
+import logo from "../../fullLogo.png";
+import HomeNavBar from "../../components/auth/HomeNavBar";
+import LoginModal from "../../components/auth/LoginModal";
+import RegistrationModal from "../../components/auth/RegistrationModal";
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loginModalShow: false,
+      registerModalShow: false,
+    };
   }
 
   componentDidMount = () => {
-    this.props.user != {} ? this.props.history.push("/dashboard") : null;
+    this.props.user != null ? this.props.history.push("/dashboard") : null;
+  };
+
+  closeLogin = () => {
+    this.setState({ loginModalShow: false });
   };
 
   loginRegister = () => {
     event.target.name == "logIn"
-      ? this.props.history.push("/login")
-      : this.props.history.push("/register");
+      ? this.setState({ loginModalShow: !this.state.loginModalShow })
+      : this.setState({ registerModalShow: !this.state.registerModalShow });
   };
 
   render() {
     return (
-      <div className="home-container">
-        <h1>Welcome to Question Dispatch</h1>
-        <button name="logIn" onClick={this.loginRegister}>
-          Log In
-        </button>
-        <button name="register" onClick={this.loginRegister}>
-          Sign Up
-        </button>
+      <div align="center" className="home-container">
+        <HomeNavBar loginRegister={this.loginRegister} />
+        {this.state.loginModalShow ? (
+          <LoginModal
+            closeLogin={this.closeLogin}
+            loginModalShow={this.state.loginModalShow}
+          />
+        ) : null}
+        {this.state.registerModalShow ? (
+          <RegistrationModal
+            registerModalShow={this.state.registerModalShow}
+            loginRegister={this.loginRegister}
+          />
+        ) : null}
+        {this.state.loginModalShow == false &&
+        this.state.registerModalShow == false ? (
+          <div className="welcome-message">
+            <img src={logo} />
+          </div>
+        ) : null}
       </div>
     );
   }

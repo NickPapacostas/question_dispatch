@@ -10,11 +10,11 @@ class Dashboard extends Component {
 
   componentDidMount() {
     consumer.subscriptions.create(
-      { channel: "QuestionChannel"},
+      { channel: "QuestionChannel" },
       {
-        received: data => {
-          console.log(data)
-        }
+        received: (data) => {
+          console.log(data);
+        },
       }
     );
   }
@@ -24,7 +24,7 @@ class Dashboard extends Component {
       <div>
         <h1>Dashboard</h1>
         <h2>
-          Welcome! {this.props.user != {} ? this.props.user.first_name : null}
+          Welcome! {this.props.user != null ? this.props.user.first_name : null}
         </h2>
       </div>
     );
