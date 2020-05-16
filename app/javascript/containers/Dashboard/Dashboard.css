@@ -1,0 +1,35 @@
+.dashboard {
+  height: 85%;
+}
+.dashboard-container {
+  background: pink;
+  display: grid;
+  grid-template-columns: .5fr 2fr 70%;
+  height: 100%;
+}
+
+.queue-sidebar {
+  background: lightgreen;
+  min-width: 50px;
+  height: 100%;
+}
+
+.queue-sidebar-buttons {
+  min-width: 50px;
+  display: grid;
+  grid-template-columns: auto;
+  height: 75%;
+  align-items: center;
+}
+
+.current-queue-sidebar {
+  background: lightblue;
+  min-width: 20px;
+
+}
+
+.workspace {
+  background: lightyellow;
+}
+
+
