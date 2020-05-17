@@ -7,7 +7,7 @@ import FormControl from "react-bootstrap/FormControl";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-import logo from "../../qdLogo";
+import logo from "../../qdLogo.jpg";
 
 class HomeNavBar extends Component {
   render() {
