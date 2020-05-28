@@ -4,8 +4,8 @@ import Home from "./containers/Home/Home";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore.js";
 import Dashboard from "./containers/Dashboard/Dashboard";
-import "antd/dist/antd.css";
-import "typeface-roboto";
+
+import "./App.css";
 
 const store = configureStore();
 

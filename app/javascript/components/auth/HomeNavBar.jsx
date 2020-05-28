@@ -9,7 +9,7 @@ import { Layout, Button } from "antd";
 
 const { Header } = Layout;
 
-import logo from "../../qdLogo";
+import logo from "../../qdLogo.jpg";
 
 class HomeNavBar extends Component {
   render() {
