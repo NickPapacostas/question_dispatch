@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { register } from "../../actions/index.js";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
+import { Modal, Button } from "antd";
+import { Form, Input } from "antd";
 class RegistrationModal extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      visible: false,
       first_name: "",
       last_name: "",
       email: "",
@@ -19,7 +19,21 @@ class RegistrationModal extends Component {
     };
   }
 
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  hideModal = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
   handleChange = () => {
+    console.log("in change");
+
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -27,6 +41,7 @@ class RegistrationModal extends Component {
 
   handleSubmit = () => {
     event.preventDefault();
+    console.log("in submit");
 
     const {
       first_name,
@@ -44,100 +59,72 @@ class RegistrationModal extends Component {
         password_confirmation,
       },
     };
-    this.props.loginRegister(event);
     this.props.register(null, data);
+    this.setState({ visible: false });
   };
 
   render() {
+    const { visible } = this.state;
     return (
-      <Modal
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        show={this.props.registerModalShow}
-        onHide={this.props.loginRegister}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">SIGN UP</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Row>
-              <Form.Group md="4" controlId="validationCustom01">
-                <Form.Label>First name</Form.Label>
-                <Form.Control
-                  type="name"
-                  name="first_name"
-                  placeholder="First Name"
-                  value={this.state.first_name}
-                  onChange={this.handleChange}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group md="4" controlId="validationCustom02">
-                <Form.Label>Last name</Form.Label>
-                <Form.Control
-                  required
-                  type="name"
-                  name="last_name"
-                  placeholder="Last Name"
-                  value={this.state.last_name}
-                  onChange={this.handleChange}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group md="4" controlId="validationCustomUsername">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide an email address.
-                </Form.Control.Feedback>
-              </Form.Group>
-            </Form.Row>
-            <Form.Row>
-              <Form.Group md="3" controlId="validationCustom04">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid password.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group md="3" controlId="validationCustom05">
-                <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password_confirmation"
-                  placeholder="Password Confirmation"
-                  value={this.state.password_confirmation}
-                  onChange={this.handleChange}
-                  required
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please match your password exactly.
-                </Form.Control.Feedback>
-              </Form.Group>
-            </Form.Row>
-            <Button name="register" type="submit">
-              Register
-            </Button>
+      <div>
+        <Button
+          type="primary"
+          style={{ margin: "15px", float: "right" }}
+          onClick={this.showModal}
+        >
+          SIGN UP
+        </Button>
+        <Modal title="Sign Up" visible={visible} footer={null}>
+          <Form onFinish={this.handleSubmit} initialValues={{ remember: true }}>
+            <Form.Item
+              label="First Name"
+              rules={[
+                { required: true, message: "Please input your first name." },
+              ]}
+            >
+              <Input name="first_name" onChange={this.handleChange} />
+            </Form.Item>
+            <Form.Item
+              label="Last Name"
+              rules={[
+                { required: true, message: "Please input your last name." },
+              ]}
+            >
+              <Input name="last_name" onChange={this.handleChange} />
+            </Form.Item>
+            <Form.Item
+              label="Email"
+              rules={[{ required: true, message: "Please input your email." }]}
+            >
+              <Input name="email" onChange={this.handleChange} />
+            </Form.Item>
+            <Form.Item
+              label="Password"
+              rules={[
+                { required: true, message: "Please input your password." },
+              ]}
+            >
+              <Input.Password name="password" onChange={this.handleChange} />
+            </Form.Item>
+            <Form.Item
+              label="Password Confirmation"
+              rules={[
+                { required: true, message: "Please match your password." },
+              ]}
+            >
+              <Input.Password
+                name="password_confirmation"
+                onChange={this.handleChange}
+              />
+            </Form.Item>
+            <Form.Item>
+              <Button name="register" htmlType="submit">
+                Register
+              </Button>
+            </Form.Item>
           </Form>
-        </Modal.Body>
-      </Modal>
+        </Modal>
+      </div>
     );
   }
 }

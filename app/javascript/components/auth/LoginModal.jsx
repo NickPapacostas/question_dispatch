@@ -1,19 +1,31 @@
 import React, { Component } from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import { loggingIn } from "../../actions/index.js";
 import { connect } from "react-redux";
+import { Modal, Button } from "antd";
+import { Form, Input } from "antd";
 
 class LoginModal extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      visible: false,
       email: "",
       password: "",
     };
   }
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  hideModal = () => {
+    this.setState({
+      visible: false,
+    });
+  };
 
   handleChange = () => {
     this.setState({
@@ -31,54 +43,56 @@ class LoginModal extends Component {
         password,
       },
     };
-    this.props.closeLogin();
     this.props.loggingIn(null, data);
+    this.setState({ visible: false });
   };
 
   render() {
+    const { visible } = this.state;
     return (
-      <Modal
-        show={this.props.loginModalShow}
-        name="logIn"
-        onHide={this.props.closeLogin}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">LOG IN</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Row>
-              <Form.Group md="4" controlId="validationCustom01">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group md="4" controlId="validationCustom02">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  required
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-              </Form.Group>
-            </Form.Row>
-            <Button type="submit">Log In</Button>
+      <div>
+        <Button
+          type="primary"
+          style={{ margin: "15px", float: "right" }}
+          onClick={this.showModal}
+        >
+          LOGIN
+        </Button>
+        <Modal title="Log In" visible={visible} footer={null}>
+          <Form
+            name="basic"
+            onFinish={this.handleSubmit}
+            initialValues={{ remember: true }}
+          >
+            <Form.Item
+              label="Email"
+              name="email"
+              onChange={this.handleChange}
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Password"
+              name="password"
+              onChange={this.handleChange}
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item>
           </Form>
-        </Modal.Body>
-      </Modal>
+        </Modal>
+      </div>
     );
   }
 }

@@ -6,10 +6,10 @@ import FormControl from "react-bootstrap/FormControl";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Layout, Button } from "antd";
-
-const { Header } = Layout;
-
 import logo from "../../qdLogo.jpg";
+import LoginModal from "./LoginModal";
+import RegistrationModal from "./RegistrationModal";
+const { Header } = Layout;
 
 class HomeNavBar extends Component {
   render() {
@@ -20,18 +20,8 @@ class HomeNavBar extends Component {
             style={{ width: "50px", float: "left", margin: "10px" }}
             src={logo}
           />
-          <Button
-            margin="12px"
-            type="black"
-            style={{
-              color: "black",
-              float: "right",
-              size: "small",
-              margin: "10px",
-            }}
-          >
-            LOGIN
-          </Button>
+          <LoginModal />
+          <RegistrationModal />
         </Header>
       </div>
     );
