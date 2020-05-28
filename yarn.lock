@@ -1801,6 +1801,13 @@ acorn@^7.1.1:
   integrity sha512-apwXVmYVpQ34m/i71vrApRrRKCWQnZZF1+npOD0WV5xZFfwWOmKGQ2RWlfdy9vWITsenisM8M0Qeq8agcFHNiQ==
 >>>>>>> master
 
+add-dom-event-listener@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/add-dom-event-listener/-/add-dom-event-listener-1.1.0.tgz#6a92db3a0dd0abc254e095c0f1dc14acbbaae310"
+  integrity sha512-WCxx1ixHT0GQU9hb0KI/mhgRQhnU+U3GvwY6ZvVjYq8rsihIGoaIOUbY0yMPBxLH5MDtr0kz3fisWGNcbWW7Jw==
+  dependencies:
+    object-assign "4.x"
+
 aggregate-error@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-3.0.1.tgz#db2fe7246e536f40d9b5442a39e117d7dd6a24e0"
@@ -1895,6 +1902,56 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     "@types/color-name" "^1.1.1"
     color-convert "^2.0.1"
+
+antd@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-4.2.4.tgz#0a75e178643858960189912b8fe48bf7e8f6abf8"
+  integrity sha512-g61c1+Ji/tbY+G1GMdk0LsCN3S1ZfoHyj+zcjXmvqZjWfdkJ/bBEzw08I3ytTe5TV8RFued0nnSjT51ruagpSA==
+  dependencies:
+    "@ant-design/css-animation" "^1.7.2"
+    "@ant-design/icons" "^4.1.0"
+    "@ant-design/react-slick" "~0.26.1"
+    array-tree-filter "^2.1.0"
+    classnames "~2.2.6"
+    copy-to-clipboard "^3.2.0"
+    lodash "^4.17.13"
+    moment "~2.25.3"
+    omit.js "^1.0.2"
+    prop-types "^15.7.2"
+    raf "^3.4.1"
+    rc-animate "~3.0.0"
+    rc-cascader "~1.0.0"
+    rc-checkbox "~2.2.0"
+    rc-collapse "~2.0.0"
+    rc-dialog "~7.7.0"
+    rc-drawer "~3.2.0"
+    rc-dropdown "~3.0.0"
+    rc-field-form "~1.2.0"
+    rc-input-number "~4.6.1"
+    rc-mentions "~1.1.0"
+    rc-menu "~8.1.0"
+    rc-notification "~4.3.0"
+    rc-pagination "~2.2.0"
+    rc-picker "~1.4.16"
+    rc-progress "~3.0.0"
+    rc-rate "~2.6.0"
+    rc-resize-observer "^0.2.0"
+    rc-select "~10.3.0"
+    rc-slider "~9.2.3"
+    rc-steps "~3.6.0"
+    rc-switch "~3.0.0"
+    rc-table "~7.5.3"
+    rc-tabs "~10.1.1"
+    rc-tooltip "~4.0.2"
+    rc-tree "~3.2.0"
+    rc-tree-select "~3.1.0"
+    rc-trigger "~4.1.0"
+    rc-upload "~3.0.4"
+    rc-util "^4.20.0"
+    rc-virtual-list "^1.1.0"
+    resize-observer-polyfill "^1.5.1"
+    scroll-into-view-if-needed "^2.2.20"
+    warning "~4.0.3"
 
 anymatch@^2.0.0:
   version "2.0.0"
@@ -2149,15 +2206,6 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
-<<<<<<< HEAD
-babel-runtime@6.x, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
-  integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.11.0"
-=======
 babel-preset-current-node-syntax@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/babel-preset-current-node-syntax/-/babel-preset-current-node-syntax-0.1.2.tgz#fb4a4c51fe38ca60fede1dc74ab35eb843cb41d6"
@@ -2181,7 +2229,14 @@ babel-preset-jest@^26.0.0:
   dependencies:
     babel-plugin-jest-hoist "^26.0.0"
     babel-preset-current-node-syntax "^0.1.2"
->>>>>>> master
+
+babel-runtime@6.x, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.11.0"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -8379,9 +8434,15 @@ rc-notification@~4.3.0:
     rc-util "^4.0.4"
 
 rc-pagination@~2.2.0:
+<<<<<<< HEAD
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/rc-pagination/-/rc-pagination-2.2.1.tgz#e4325a7177ad547cd2ae2d3c15020f723b5527ed"
   integrity sha512-mlYvzrTn98dfgvpQ0vzIPz6WX60gkK9DltyjoibIFSmPr6gTFpZCibtzRNkqGi89hozB1yU7iHcuOLchP91rWw==
+=======
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/rc-pagination/-/rc-pagination-2.2.2.tgz#9773726fb6c5879bd4e5fe8848cb2dea50d80b97"
+  integrity sha512-7QVY4xcoLcB9jHDxOm/zY1b6wEP8/jEVpcOFUQk2bbKUtrt8cRNB+FIrDUvuVeiIEFYcMXFPgKoHHMrUaIuSGA==
+>>>>>>> master
   dependencies:
     classnames "^2.2.1"
 
@@ -8421,14 +8482,24 @@ rc-resize-observer@^0.2.0:
     resize-observer-polyfill "^1.5.1"
 
 rc-select@^10.1.0, rc-select@~10.3.0:
+<<<<<<< HEAD
   version "10.3.2"
   resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-10.3.2.tgz#c3dd7d101e39b6815ff66c6fccf5cdae80437b40"
   integrity sha512-RKg5OwwclJbYwru7SDC5JeBIX3Nnhis9JwJaSZES3bw3tel6fzlHqTDeyY75bst7c0mF6TqcDvU6TC1Lphu/8A==
+=======
+  version "10.3.5"
+  resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-10.3.5.tgz#a3c8c6013414f3f4d878f1f806c9d8a77770bfb7"
+  integrity sha512-6/TNVEkMT6TPrgOwAJ/pLKlEgGpvCpAgCb5c0SFfyp5wR9bDjFld/U2hhIZ7tYvuvR1Nq/1Iaj0Tumd4nJDD/w==
+>>>>>>> master
   dependencies:
     classnames "2.x"
     rc-animate "^3.0.0"
     rc-trigger "^4.0.0"
+<<<<<<< HEAD
     rc-util "^4.20.0"
+=======
+    rc-util "^4.20.6"
+>>>>>>> master
     rc-virtual-list "^1.1.2"
     warning "^4.0.3"
 
@@ -8545,10 +8616,17 @@ rc-upload@~3.0.4:
     babel-runtime "6.x"
     classnames "^2.2.5"
 
+<<<<<<< HEAD
 rc-util@^4.0.4, rc-util@^4.11.0, rc-util@^4.12.0, rc-util@^4.13.0, rc-util@^4.14.0, rc-util@^4.15.3, rc-util@^4.16.1, rc-util@^4.17.0, rc-util@^4.20.0, rc-util@^4.20.1, rc-util@^4.20.3, rc-util@^4.5.1, rc-util@^4.6.0, rc-util@^4.8.0, rc-util@^4.9.0:
   version "4.20.5"
   resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-4.20.5.tgz#f7c77569e971ae6a8ad56f899cadd22275398325"
   integrity sha512-f67s4Dt1quBYhrVPq5QMKmK3eS2hN1NNIAyhaiG0HmvqiGYAXMQ7SP2AlGqv750vnzhJs38JklbkWT1/wjhFPg==
+=======
+rc-util@^4.0.4, rc-util@^4.11.0, rc-util@^4.12.0, rc-util@^4.13.0, rc-util@^4.14.0, rc-util@^4.15.3, rc-util@^4.16.1, rc-util@^4.17.0, rc-util@^4.20.0, rc-util@^4.20.1, rc-util@^4.20.3, rc-util@^4.20.6, rc-util@^4.5.1, rc-util@^4.6.0, rc-util@^4.8.0, rc-util@^4.9.0:
+  version "4.20.6"
+  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-4.20.6.tgz#57e6a57dac3d9133bedb36ee9d6125eeae0930ff"
+  integrity sha512-LTT+s9JXHL6Xf3lwDGBGem0w4/CBoMDafKBuB3szCoVrxHzakKnYpdQi2eoNfDQh0FrdFPhL922oChbZT98H+g==
+>>>>>>> master
   dependencies:
     add-dom-event-listener "^1.1.0"
     prop-types "^15.5.10"
@@ -8933,13 +9011,19 @@ regenerate@^1.4.0:
   integrity sha512-1G6jJVDWrt0rK99kBjvEtziZNCICAuvIPkSiUFIQxVP06RCVpq3dmDo2oi6ABpYaDYaTRr67BEhL8r1wgEZZKg==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
+<<<<<<< HEAD
 regenerator-runtime@^0.13.3, regenerator-runtime@^0.13.4:
 =======
+=======
+>>>>>>> master
 regenerator-runtime@^0.13.3, regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.5:
 >>>>>>> master
   version "0.13.5"
@@ -9791,11 +9875,18 @@ strict-uri-encode@^1.0.0:
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 string-convert@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
   integrity sha1-aYLMMEn7tM2F+LJFaLnZvznu/5c=
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> master
 string-length@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/string-length/-/string-length-4.0.1.tgz#4a973bf31ef77c4edbceadd6af2611996985f8a1"
@@ -10141,11 +10232,18 @@ tiny-warning@^1.0.0, tiny-warning@^1.0.2:
   integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> master
 tmpl@1.0.x:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
