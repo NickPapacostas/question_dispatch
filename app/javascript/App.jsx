@@ -4,6 +4,8 @@ import Home from "./containers/Home/Home";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore.js";
 import Dashboard from "./containers/Dashboard/Dashboard";
+import "antd/dist/antd.css";
+import "typeface-roboto";
 
 const store = configureStore();
 
@@ -17,6 +19,7 @@ export default class App extends Component {
   componentDidMount = () => {};
 
   render() {
+    console.log("in app");
     return (
       <div className="app">
         <Provider store={store}>
