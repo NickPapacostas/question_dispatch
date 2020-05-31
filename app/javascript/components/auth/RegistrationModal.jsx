@@ -74,7 +74,12 @@ class RegistrationModal extends Component {
         >
           SIGN UP
         </Button>
-        <Modal title="Sign Up" visible={visible} footer={null}>
+        <Modal
+          onCancel={this.hideModal}
+          title="Sign Up"
+          visible={visible}
+          footer={null}
+        >
           <Form onFinish={this.handleSubmit} initialValues={{ remember: true }}>
             <Form.Item
               label="First Name"
@@ -118,7 +123,7 @@ class RegistrationModal extends Component {
               />
             </Form.Item>
             <Form.Item>
-              <Button name="register" htmlType="submit">
+              <Button type="primary" name="register" htmlType="submit">
                 Register
               </Button>
             </Form.Item>

@@ -13,18 +13,27 @@ const { Header } = Layout;
 
 class HomeNavBar extends Component {
   render() {
-    return (
-      <div>
+    const user = this.props.user;
+    if (user == null) {
+      return (
         <Header style={{ background: "blue" }}>
-          <img
-            style={{ width: "50px", float: "left", margin: "10px" }}
-            src={logo}
-          />
+          <img style={{ width: "55px", float: "left" }} src={logo} />
           <LoginModal />
           <RegistrationModal />
         </Header>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <Header style={{ background: "blue" }}>
+          <img style={{ width: "55px", float: "left" }} src={logo} />
+          <p float="right">
+            Welcome{" "}
+            {user.first_name.charAt(0).toUpperCase() + user.first_name.slice(1)}
+            !{" "}
+          </p>
+        </Header>
+      );
+    }
   }
 }
 

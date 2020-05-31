@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import * as actions from "../../actions";
 import consumer from "../../channels/consumer";
 // import HomeNavBar from "../../components/auth/HomeNavBar";
-import QueueSidebar from "../../components/QueueSidebar"
-
+import QueueSidebar from "../../components/auth/Sidebars/QueueSidebar";
+import { Layout, Button } from "antd";
+const { Header, Footer, Sider, Content } = Layout;
 import "./Dashboard.css";
+import HomeNavBar from "../../components/auth/HomeNavBar";
+import QuestionQueueSidebar from "../../components/auth/Sidebars/QuestionsQueueSidebar";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -25,18 +28,14 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="dashboard">
-        <div className="dashboard-container">
-          <div className="queue-sidebar">
-            <QueueSidebar />
-          </div>
-
-{/*          <QuestionChatList />
-          <ActiveQuestions />*/}
-          <div className="current-queue-sidebar"></div>
-          <div className="workspace"></div>
-        </div>
-      </div>
+      <Layout className="dashboard-container">
+        <HomeNavBar />
+        <Layout>
+          <QueueSidebar />
+          <QuestionQueueSidebar />
+          <Content></Content>
+        </Layout>
+      </Layout>
     );
   }
 }

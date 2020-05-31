@@ -58,7 +58,12 @@ class LoginModal extends Component {
         >
           LOGIN
         </Button>
-        <Modal title="Log In" visible={visible} footer={null}>
+        <Modal
+          onCancel={this.hideModal}
+          title="Log In"
+          visible={visible}
+          footer={null}
+        >
           <Form
             name="basic"
             onFinish={this.handleSubmit}
@@ -66,24 +71,20 @@ class LoginModal extends Component {
           >
             <Form.Item
               label="Email"
-              name="email"
-              onChange={this.handleChange}
               rules={[
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input />
+              <Input name="email" onChange={this.handleChange} />
             </Form.Item>
 
             <Form.Item
               label="Password"
-              name="password"
-              onChange={this.handleChange}
               rules={[
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input.Password />
+              <Input.Password name="password" onChange={this.handleChange} />
             </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit">

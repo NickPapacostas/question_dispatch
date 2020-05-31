@@ -13,6 +13,7 @@ export const register = (dispatch, userData) => {
 };
 
 export const loggingIn = (dispatch, userData) => {
+  console.log("in log in", userData);
   return (dispatch) => {
     dispatch({ type: "ASYNC_START" });
     logIn(userData).then((data) => {
