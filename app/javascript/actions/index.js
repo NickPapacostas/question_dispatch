@@ -1,4 +1,4 @@
-import { NEW_USER, LOG_IN } from "./types";
+import { NEW_USER, LOG_IN, ADD_MESSAGE } from "./types";
 import { newUser, logIn } from "../adapters";
 
 //USERS############################################################################
@@ -20,4 +20,10 @@ export const loggingIn = (dispatch, userData) => {
       dispatch({ type: LOG_IN, data });
     });
   };
+};
+
+//CHAT############################################################################
+
+export const addMessage = (msgText) => {
+  return { type: ADD_MESSAGE, message: msgText };
 };

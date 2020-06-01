@@ -18,9 +18,9 @@ class Home extends React.Component {
     };
   }
 
-  componentDidMount = () => {
-    this.props.user != null ? this.props.history.push("/dashboard") : null;
-  };
+  // componentDidMount = () => {
+  //   this.props.user != null ? this.props.history.push("/dashboard") : null;
+  // };
 
   closeLogin = () => {
     this.setState({ loginModalShow: false });

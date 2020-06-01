@@ -9,22 +9,23 @@ const { Header, Footer, Sider, Content } = Layout;
 import "./Dashboard.css";
 import HomeNavBar from "../../components/auth/HomeNavBar";
 import QuestionQueueSidebar from "../../components/auth/Sidebars/QuestionsQueueSidebar";
+import Chat from "../../components/auth/chatComponents/Chat";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    consumer.subscriptions.create(
-      { channel: "QuestionChannel" },
-      {
-        received: (data) => {
-          console.log(data);
-        },
-      }
-    );
-  }
+  // componentDidMount() {
+  //   consumer.subscriptions.create(
+  //     { channel: "QuestionChannel" },
+  //     {
+  //       received: (data) => {
+  //         console.log(data);
+  //       },
+  //     }
+  //   );
+  // }
 
   render() {
     return (
@@ -33,7 +34,9 @@ class Dashboard extends Component {
         <Layout>
           <QueueSidebar />
           <QuestionQueueSidebar />
-          <Content></Content>
+          <Content>
+            <Chat />
+          </Content>
         </Layout>
       </Layout>
     );

@@ -17,8 +17,6 @@ export default class App extends Component {
     this.state = {};
   }
 
-  componentDidMount = () => {};
-
   render() {
     console.log("in app");
     return (
