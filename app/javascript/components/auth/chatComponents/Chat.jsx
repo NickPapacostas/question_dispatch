@@ -30,26 +30,26 @@ import {
   RateBadIcon,
   Bubble,
 } from "@livechat/ui-kit";
+import { Form, Input } from "antd";
 
-class Chat extends Component {
-  render() {
-    const messages = this.props.messages;
-    const messageGroups = messages.map((message) => {
-      <MessageGroup>
-        <Message>
-          {message.text}
-          <MessageText></MessageText>
-        </Message>
-      </MessageGroup>;
-    });
+const Chat = ({ messages, addMessage }) => {
+  if (messages.length) {
     return (
       <ThemeProvider>
-        <FixedWrapper.Root maximizedOnInit>
+        <FixedWrapper.Root maximizedOnInit style={{ marginBottom: "150px" }}>
           <FixedWrapper.Maximized>
-            <MessageList active>{messageGroups}</MessageList>
-            <TextComposer
-              onSend={(message) => this.props.addMessage({ text: message })}
-            >
+            <MessageList active containScrollInSubtree>
+              {messages.map((message, index) => (
+                <MessageGroup key={index}>
+                  <Bubble>
+                    <Message>
+                      <MessageText>{message.text}</MessageText>
+                    </Message>
+                  </Bubble>
+                </MessageGroup>
+              ))}
+            </MessageList>
+            <TextComposer onSend={(message) => addMessage({ text: message })}>
               <Row align="center">
                 <Fill>
                   <TextInput />
@@ -63,8 +63,44 @@ class Chat extends Component {
         </FixedWrapper.Root>
       </ThemeProvider>
     );
+  } else {
+    return (
+      <ThemeProvider>
+        <FixedWrapper.Root maximizedOnInit style={{ marginBottom: "150px" }}>
+          <FixedWrapper.Maximized>
+            <MessageList>
+              <MessageGroup>
+                <Message style={{ width: "100%" }}>
+                  <TitleBar title="ASK US A QUESTION" />
+
+                  <TextComposer>
+                    <MessageTitle title="Your Question:" />
+                    <TextInput />
+                  </TextComposer>
+                  <TextComposer>
+                    <MessageTitle title="Your Code:" />
+                    <TextInput />
+                  </TextComposer>
+                  <TextComposer>
+                    <MessageTitle title="Your Error:" />
+                    <TextInput />
+                  </TextComposer>
+                  <MessageButton
+                    label="Send Question"
+                    style={{ backgroud: "blue" }}
+                    onClick={(event) => {
+                      console.log(event.target.parentElement.children);
+                    }}
+                  />
+                </Message>
+              </MessageGroup>
+            </MessageList>
+          </FixedWrapper.Maximized>
+        </FixedWrapper.Root>
+      </ThemeProvider>
+    );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
