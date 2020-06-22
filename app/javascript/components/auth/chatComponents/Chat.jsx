@@ -66,13 +66,12 @@ const Chat = ({ messages, addMessage }) => {
   } else {
     return (
       <ThemeProvider>
-        <FixedWrapper.Root maximizedOnInit style={{ marginBottom: "150px" }}>
+        <FixedWrapper.Root maximizedOnInit>
           <FixedWrapper.Maximized>
             <MessageList>
               <MessageGroup>
-                <Message style={{ width: "100%" }}>
+                <Message>
                   <TitleBar title="ASK US A QUESTION" />
-
                   <TextComposer>
                     <MessageTitle title="Your Question:" />
                     <TextInput />
