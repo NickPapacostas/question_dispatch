@@ -10,6 +10,7 @@ import "./Dashboard.css";
 import HomeNavBar from "../../components/auth/HomeNavBar";
 import QuestionQueueSidebar from "../../components/auth/Sidebars/QuestionsQueueSidebar";
 import Chat from "../../components/auth/chatComponents/Chat";
+import NewQuestionModal from "../../components/auth/questionComponents/NewQuestionModal";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -34,14 +35,15 @@ class Dashboard extends Component {
         <Layout>
           <QueueSidebar />
           <QuestionQueueSidebar />
-          <Content>
-            <Chat />
-          </Content>
+          <NewQuestionModal />
         </Layout>
       </Layout>
     );
   }
 }
+// <Content>
+//   <Chat />
+// </Content>
 
 const mapStateToProps = (state) => {
   return {
