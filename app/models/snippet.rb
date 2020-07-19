@@ -1,4 +1,4 @@
 class Snippet < ApplicationRecord
   has_one :question
-  # has one :author??
+  has_one :user
 end
