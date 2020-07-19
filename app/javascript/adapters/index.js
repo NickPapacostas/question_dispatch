@@ -5,24 +5,38 @@ const headers = {
 
 //USERS############################################################################
 
-export const newUser = (data) => {
-  return fetch("http://localhost:3000/api/registrations", {
+export const fetchNewUser = async (data) => {
+  const resp = await fetch("http://localhost:3000/api/registrations", {
     headers: headers,
     credentials: "include",
     method: "POST",
     body: JSON.stringify({ data }),
-  })
-    .then((resp) => resp.json())
-    .then((json) => json);
+  });
+  const json = await resp.json();
+  return json;
 };
 
-export const logIn = (data) => {
-  return fetch("http://localhost:3000/api/sessions", {
+export const fetchLogIn = async (data) => {
+  const resp = await fetch("http://localhost:3000/api/sessions", {
     headers: headers,
     credentials: "include",
     method: "POST",
     body: JSON.stringify({ data }),
-  })
-    .then((resp) => resp.json())
-    .then((json) => json);
+  });
+  const json = await resp.json();
+  return json;
+};
+
+//QUESTIONSS############################################################################
+
+export const fetchNewQuestion = (questionData) => {
+  debugger;
+  // const resp = await fetch(), {
+  //   headers,
+  //   credentials: "include",
+  //   method: "POST",
+  //   body: JSON.stringify({questionData})
+  // }
+  // const json = await resp.json()
+  // return json
 };
