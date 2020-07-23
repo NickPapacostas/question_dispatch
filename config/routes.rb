@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   end
 
 
-  get '*path', to: 'homepage#index'
-  root 'homepage#index'
+
 
   mount ActionCable.server, at: '/cable'
 end
