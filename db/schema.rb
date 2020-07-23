@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_205238) do
+ActiveRecord::Schema.define(version: 2020_05_01_205136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,19 +27,19 @@ ActiveRecord::Schema.define(version: 2020_05_01_205238) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "sender_id"
-    t.text "text"
     t.integer "question_id"
+    t.integer "user_id"
+    t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer "student_id"
+    t.integer "user_id"
     t.text "description"
     t.text "error_message"
     t.string "github_username"
-    t.string "state"
+    t.string "aasm_state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,14 +55,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_205238) do
 
   create_table "snippets", force: :cascade do |t|
     t.integer "question_id"
+    t.integer "user_id"
     t.text "rich_text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "github_username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_205238) do
     t.string "last_name"
     t.string "github_username"
     t.string "password_digest"
+    t.text "roles", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

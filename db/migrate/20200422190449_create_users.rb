@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :github_username
       t.string :password_digest
+      t.text :roles, array: true, default: []
 
       t.timestamps
     end
