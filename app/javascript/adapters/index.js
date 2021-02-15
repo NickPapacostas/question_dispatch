@@ -29,14 +29,14 @@ export const fetchLogIn = async (data) => {
 
 //QUESTIONSS############################################################################
 
-export const fetchNewQuestion = (questionData) => {
-  debugger;
-  // const resp = await fetch(), {
-  //   headers,
-  //   credentials: "include",
-  //   method: "POST",
-  //   body: JSON.stringify({questionData})
-  // }
-  // const json = await resp.json()
-  // return json
+export const fetchNewQuestion = async (questionData) => {
+  const resp = await fetch("http://localhost:3000/api/questions", {
+    headers,
+    credentials: "include",
+    method: "POST",
+    body: JSON.stringify({ questionData }),
+  });
+  const json = await resp.json();
+  console.log("fetch question", json);
+  return json;
 };

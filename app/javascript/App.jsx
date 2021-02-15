@@ -18,7 +18,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log("in app");
     return (
       <div className="app">
         <Provider store={store}>

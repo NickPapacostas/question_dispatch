@@ -1,5 +1,6 @@
 class Api::QuestionsController < ApplicationController
   def create
+    byebug
     @question = Question.new(question_params)
 
     if @question.save

@@ -12,13 +12,16 @@ const NewQuestionModal = (props) => {
   const [error, setError] = useState("");
 
   const handleChange = () => {
-    switch (event.target.name) {
+    let name = event.target.classList[1];
+    let value = event.target.value;
+
+    switch (name) {
       case "description":
-        setDescription(event.target.value);
+        setDescription(value);
       case "code":
-        setCode(event.target.value);
+        setCode(value);
       case "error":
-        setError(event.target.value);
+        setError(value);
     }
   };
 
@@ -35,6 +38,9 @@ const NewQuestionModal = (props) => {
       ],
     };
     fetchNewQuestion(questionData);
+    setDescription("");
+    setCode("");
+    setError("");
   };
 
   return (
@@ -66,14 +72,14 @@ const NewQuestionModal = (props) => {
               },
             ]}
           >
-            <Input name="description" onChange={handleChange} />
+            <Input className="description" onChange={handleChange} />
           </Form.Item>
 
           <Form.Item label="Current Code">
-            <Input name="code" onChange={handleChange} />
+            <Input className="code" onChange={handleChange} />
           </Form.Item>
           <Form.Item label="Current Error">
-            <Input name="error" onChange={handleChange} />
+            <Input className="error" onChange={handleChange} />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">

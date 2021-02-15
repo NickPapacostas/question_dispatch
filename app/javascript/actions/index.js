@@ -1,4 +1,10 @@
-import { NEW_USER, LOG_IN, ADD_MESSAGE, NEW_QUESTION } from "./types";
+import {
+  NEW_USER,
+  LOG_IN,
+  ADD_MESSAGE,
+  NEW_QUESTION,
+  AUTHENTICATE_USER,
+} from "./types";
 import { fetchNewUser, fetchLogIn } from "../adapters";
 
 //USERS############################################################################
@@ -20,6 +26,13 @@ export const loggingIn = (dispatch, userData) => {
       dispatch({ type: LOG_IN, data });
     });
   };
+};
+
+export const authUser = () => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    return { type: AUTHENTICATE_USER, authenticate: true };
+  }
 };
 
 //CHAT############################################################################
